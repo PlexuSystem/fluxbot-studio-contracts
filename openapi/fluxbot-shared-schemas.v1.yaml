@@ -1,0 +1,29 @@
+openapi: 3.1.0
+info:
+  title: FluxBot Shared Schemas
+  version: 1.0.0
+  description: Shared schemas for all FluxBot channels.
+paths: {}
+components:
+  schemas:
+    PublicApiError:
+      type: object
+      required:
+        - errorCode
+        - message
+      properties:
+        errorCode:
+          type: string
+          enum:
+            - INVALID_TOKEN
+            - DOMAIN_NOT_ALLOWED
+            - RATE_LIMITED
+            - VALIDATION_ERROR
+            - BACKEND_UNAVAILABLE
+            - INTERNAL_ERROR
+        message:
+          type: string
+        requestId:
+          type:
+            - string
+            - 'null'

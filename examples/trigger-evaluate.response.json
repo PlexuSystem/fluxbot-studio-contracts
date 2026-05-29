@@ -1,0 +1,24 @@
+{
+  "data": {
+    "evaluations": [
+      {
+        "triggerId": "trg-1",
+        "triggerName": "High dwell time offer",
+        "decision": "SEND",
+        "reason": "Trigger conditions matched",
+        "message": "¿Te ayudo a elegir tu talla?",
+        "score": 0.8,
+        "metadata": {
+          "priority": 8
+        }
+      }
+    ],
+    "recommendation": {
+      "triggerId": "trg-1",
+      "action": "SEND",
+      "message": "¿Te ayudo a elegir tu talla?"
+    }
+  },
+  "requestId": "req-4ad31fa8-7091-4f99-8fca-ec4c2ffc0f4c",
+  "timestamp": "2026-05-11T10:00:00.000Z"
+}

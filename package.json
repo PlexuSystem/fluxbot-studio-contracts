@@ -1,0 +1,16 @@
+{
+  "name": "fluxbot-studio-contracts",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "lint": "spectral lint \"openapi/*.yaml\"",
+    "validate": "npm run lint",
+    "check": "npm run validate",
+    "qa:gate": "npm run check",
+    "githooks:install": "git config core.hooksPath .githooks"
+  },
+  "devDependencies": {
+    "@stoplight/spectral-cli": "^6.13.1"
+  }
+}

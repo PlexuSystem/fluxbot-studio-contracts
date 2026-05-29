@@ -1,0 +1,13 @@
+{
+  "sessionId": "sess-101",
+  "visitorId": "visitor-55",
+  "context": {
+    "currentPage": "/products/runner-pro",
+    "dwellTimeSeconds": 120,
+    "scrollDepth": 80,
+    "cartValue": 120.5,
+    "productsViewed": 4,
+    "exitIntent": false,
+    "lastActivityAt": "2026-05-11T10:00:00.000Z"
+  }
+}

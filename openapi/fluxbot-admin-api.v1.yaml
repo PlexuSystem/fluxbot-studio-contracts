@@ -1,0 +1,36 @@
+openapi: 3.1.0
+info:
+  title: FluxBot Admin API
+  version: 1.0.0
+  description: Admin Shopify channel contract surface.
+servers:
+  - url: https://api.fluxbot.ai
+paths:
+  /api/v1/chat:
+    post:
+      operationId: sendAdminChatMessage
+      summary: Send chat message from admin channel
+      tags:
+        - Admin
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '200':
+          description: Chat response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

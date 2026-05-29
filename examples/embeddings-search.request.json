@@ -1,0 +1,19 @@
+{
+  "queryEmbedding": [
+    0.14,
+    -0.21,
+    0.03,
+    0.67
+  ],
+  "options": {
+    "limit": 10,
+    "threshold": 0.5,
+    "filter": {
+      "shopId": "shop_abc123",
+      "documentType": "product",
+      "locales": [
+        "es"
+      ]
+    }
+  }
+}

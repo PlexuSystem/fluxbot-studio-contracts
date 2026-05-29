@@ -1,0 +1,20 @@
+{
+  "message": "Quiero recomendaciones de zapatillas para correr",
+  "conversationId": "conv-123",
+  "context": {
+    "shopId": "shop_abc123",
+    "locale": "es",
+    "channel": "WEB_CHAT",
+    "customerId": "cust-001"
+  },
+  "history": [
+    {
+      "role": "user",
+      "content": "Hola"
+    },
+    {
+      "role": "assistant",
+      "content": "Hola, ¿cómo puedo ayudarte?"
+    }
+  ]
+}

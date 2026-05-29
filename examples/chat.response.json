@@ -1,0 +1,15 @@
+{
+  "data": {
+    "message": "Te recomiendo estas opciones según tu necesidad.",
+    "conversationId": "conv-123",
+    "confidence": 0.92,
+    "metadata": {
+      "latencyMs": 830,
+      "tokensUsed": 212,
+      "model": "gpt-4o-mini",
+      "provider": "openai"
+    }
+  },
+  "requestId": "req-7f6d23f8-a7d1-4f56-9652-6e989f8421b2",
+  "timestamp": "2026-05-11T10:00:00.000Z"
+}

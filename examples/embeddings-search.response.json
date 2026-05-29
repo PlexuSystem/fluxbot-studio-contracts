@@ -1,0 +1,19 @@
+{
+  "data": {
+    "results": [
+      {
+        "chunkId": "chunk-101",
+        "documentType": "product",
+        "title": "Zapatilla Runner Pro",
+        "content": "Zapatilla ligera para entrenamiento diario.",
+        "relevance": 0.87,
+        "metadata": {
+          "productId": "prod-123",
+          "locale": "es"
+        }
+      }
+    ]
+  },
+  "requestId": "req-f47db3b2-73d0-48f2-84c7-55769a7fe2ec",
+  "timestamp": "2026-05-11T10:00:00.000Z"
+}

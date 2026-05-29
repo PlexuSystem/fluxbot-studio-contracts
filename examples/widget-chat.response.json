@@ -1,0 +1,11 @@
+{
+  "reply": "Claro, te ayudo con los envíos. ¿Cuál es tu país?",
+  "conversationId": "conv_external_99",
+  "messageId": "msg_1001",
+  "usage": {
+    "inputTokens": 112,
+    "outputTokens": 46,
+    "totalTokens": 158
+  },
+  "errorCode": null
+}

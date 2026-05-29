@@ -1,0 +1,13 @@
+{
+  "message": "Hola, necesito ayuda con los envíos",
+  "sessionId": "sess_external_01",
+  "conversationId": null,
+  "metadata": {
+    "channel": "external-widget",
+    "url": "https://example.com/checkout",
+    "title": "Checkout",
+    "locale": "es",
+    "referrer": "https://google.com",
+    "userAgent": "Mozilla/5.0"
+  }
+}
