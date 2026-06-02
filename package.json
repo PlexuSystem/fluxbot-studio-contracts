@@ -8,7 +8,13 @@
     "validate": "npm run lint",
     "check": "npm run validate",
     "qa:gate": "npm run check",
-    "githooks:install": "git config core.hooksPath .githooks"
+    "githooks:install": "git config core.hooksPath .githooks",
+    "openspec:status": "node ../scripts/openspec-cli.mjs status",
+    "openspec:validate": "node ../scripts/openspec-cli.mjs validate",
+    "openspec:validate:user-story": "node ../scripts/validate-openspec-user-story.mjs",
+    "openspec:validate:strict": "npm run openspec:validate && npm run openspec:validate:user-story",
+    "openspec:conflicts": "node ../scripts/check-openspec-conflicts.mjs",
+    "speckit:check": "bash ./.specify/scripts/bash/check-prerequisites.sh --paths-only"
   },
   "devDependencies": {
     "@stoplight/spectral-cli": "^6.13.1"

@@ -1,0 +1,123 @@
+{
+  "project": {
+    "name": "Fluxbot Studio Contracts",
+    "version": "1.0.0",
+    "description": "Shared API contracts and compatibility policy requirements",
+    "owner": "Fluxbot Team",
+    "repos": {
+      "contracts": "fluxbot-studio-contracts",
+      "backend_ia": "fluxbot-studio-back-ia",
+      "widget": "fluxbot-external-widget"
+    },
+    "status": "in-development",
+    "last_updated": "2026-06-01T00:00:00.000Z",
+    "source_of_truth": ".openspec.json"
+  },
+  "requirements": {
+    "widget_api_contract": [
+      {
+        "id": "REQ-CONTRACT-001",
+        "title": "Widget API OpenAPI contract",
+        "description": "The contracts repo defines the versioned OpenAPI contract for external widget APIs.",
+        "priority": "critical",
+        "status": "planned",
+        "owner": "contracts",
+        "components": [
+          "openapi",
+          "examples",
+          "docs"
+        ],
+        "acceptance_criteria": [
+          "OpenAPI includes widget chat and connection-test operations",
+          "Contract defines authentication, request, response, and error shapes",
+          "Spectral validation passes"
+        ],
+        "dependencies": [],
+        "metrics": {
+          "quality_score": 90,
+          "completion_rate": 0,
+          "velocity": 1
+        },
+        "user_story": "Como desarrollador de contratos, quiero the contracts repo defines the versioned OpenAPI contract for external widget APIs. para entregar el canal widget externo sin acoplar responsabilidades entre repos."
+      },
+      {
+        "id": "REQ-CONTRACT-002",
+        "title": "Shared public error schema",
+        "description": "The contracts repo defines a shared public error schema for widget endpoints.",
+        "priority": "critical",
+        "status": "planned",
+        "owner": "contracts",
+        "components": [
+          "openapi",
+          "examples"
+        ],
+        "acceptance_criteria": [
+          "Error schema includes stable code, message, requestId, and retryable fields",
+          "401, 403, 429, and 500 examples reference the shared schema",
+          "Backend and widget requirements depend on the schema"
+        ],
+        "dependencies": [
+          "REQ-CONTRACT-001"
+        ],
+        "metrics": {
+          "quality_score": 90,
+          "completion_rate": 0,
+          "velocity": 1
+        },
+        "user_story": "Como desarrollador de contratos, quiero the contracts repo defines a shared public error schema for widget endpoints. para entregar el canal widget externo sin acoplar responsabilidades entre repos."
+      },
+      {
+        "id": "REQ-CONTRACT-003",
+        "title": "Widget chat request/response examples",
+        "description": "The contracts repo provides canonical widget chat request and response examples.",
+        "priority": "high",
+        "status": "planned",
+        "owner": "contracts",
+        "components": [
+          "examples",
+          "docs"
+        ],
+        "acceptance_criteria": [
+          "Examples cover first message and follow-up conversation cases",
+          "Examples include metadata and usage fields",
+          "Examples are referenced by backend and widget docs"
+        ],
+        "dependencies": [
+          "REQ-CONTRACT-001"
+        ],
+        "metrics": {
+          "quality_score": 90,
+          "completion_rate": 0,
+          "velocity": 1
+        },
+        "user_story": "Como desarrollador de integraciones, quiero the contracts repo provides canonical widget chat request and response examples. para entregar el canal widget externo sin acoplar responsabilidades entre repos."
+      },
+      {
+        "id": "REQ-CONTRACT-004",
+        "title": "Backward compatibility policy for widget v1",
+        "description": "The contracts repo documents backward compatibility rules for widget API v1.",
+        "priority": "high",
+        "status": "planned",
+        "owner": "contracts",
+        "components": [
+          "docs",
+          "openapi"
+        ],
+        "acceptance_criteria": [
+          "Breaking and non-breaking changes are defined for v1",
+          "Versioning expectations are documented for CDN/widget consumers",
+          "Compatibility policy is referenced by widget release requirements"
+        ],
+        "dependencies": [
+          "REQ-CONTRACT-001"
+        ],
+        "metrics": {
+          "quality_score": 90,
+          "completion_rate": 0,
+          "velocity": 1
+        },
+        "user_story": "Como responsable de release, quiero the contracts repo documents backward compatibility rules for widget API v1. para entregar el canal widget externo sin acoplar responsabilidades entre repos."
+      }
+    ]
+  }
+}
