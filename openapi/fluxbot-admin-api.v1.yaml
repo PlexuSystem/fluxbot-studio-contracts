@@ -29,8 +29,156 @@ paths:
               schema:
                 type: object
                 additionalProperties: true
+  /api/v1/billing/status:
+    get:
+      operationId: getBillingStatus
+      summary: Retrieve current usage status and active plan for the shop
+      tags:
+        - Billing
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Usage and subscription status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsageStatusDto'
+  /api/v1/billing/plans:
+    get:
+      operationId: getBillingPlans
+      summary: List all active plans available for subscription
+      tags:
+        - Billing
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: List of billing plans
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BillingPlanDto'
+  /api/v1/billing/subscribe:
+    post:
+      operationId: subscribeToPlan
+      summary: Subscribe or upgrade to a billing plan
+      tags:
+        - Billing
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [planCode]
+              properties:
+                planCode:
+                  type: string
+                  example: starter
+      responses:
+        '200':
+          description: Approval URL generated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  confirmationUrl:
+                    type: string
+                    nullable: true
+                    example: https://admin.shopify.com/store/my-shop/apps/fluxbot/subscribe
+  /api/v1/billing/webhooks/shopify:
+    post:
+      operationId: shopifyBillingWebhook
+      summary: Handle incoming Shopify billing webhooks
+      tags:
+        - Webhooks
+      responses:
+        '200':
+          description: Webhook processed
 components:
   securitySchemes:
     bearerAuth:
       type: http
       scheme: bearer
+  schemas:
+    BillingPlanDto:
+      type: object
+      required: [code, name, billingMode, currency, includedMessages]
+      properties:
+        code:
+          type: string
+          example: starter
+        name:
+          type: string
+          example: Starter
+        billingMode:
+          type: string
+          enum: [shopify_app_pricing, shopify_legacy_billing]
+        currency:
+          type: string
+          example: USD
+        basePrice:
+          type: number
+          example: 18.50
+        includedMessages:
+          type: integer
+          example: 300
+        includedPeriodType:
+          type: string
+          enum: [lifetime, monthly]
+        extraBlockSize:
+          type: integer
+          nullable: true
+          example: 100
+        extraBlockPrice:
+          type: number
+          nullable: true
+          example: 9.00
+        cappedAmount:
+          type: number
+          nullable: true
+          example: 90.00
+
+    UsageStatusDto:
+      type: object
+      required: [shopId, currentUsage, status]
+      properties:
+        shopId:
+          type: string
+        activePlanCode:
+          type: string
+        billingCurrency:
+          type: string
+        currentUsage:
+          type: integer
+        includedUsage:
+          type: integer
+        billableBlocks:
+          type: integer
+        billedBlocks:
+          type: integer
+        balanceUsed:
+          type: number
+          nullable: true
+        cappedAmount:
+          type: number
+          nullable: true
+        softCapAmount:
+          type: number
+          nullable: true
+        billingCycleStart:
+          type: string
+          format: date-time
+        billingCycleEnd:
+          type: string
+          format: date-time
+        status:
+          type: string
+          enum: [pending, active, approaching_limit, capped, frozen, cancelled, uninstalled]
+
