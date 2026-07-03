@@ -101,6 +101,40 @@ paths:
       responses:
         '200':
           description: Webhook processed
+  /api/v1/billing/usage-sync:
+    post:
+      operationId: syncBillingUsage
+      summary: Synchronize usage metrics from Shopify app to backend IA
+      tags:
+        - Billing
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [currentUsage, tranchesBilled]
+              properties:
+                currentUsage:
+                  type: integer
+                  example: 120
+                tranchesBilled:
+                  type: integer
+                  example: 1
+      responses:
+        '200':
+          description: Usage synchronized successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [ok]
+                properties:
+                  ok:
+                    type: boolean
+                    example: true
 components:
   securitySchemes:
     bearerAuth:
