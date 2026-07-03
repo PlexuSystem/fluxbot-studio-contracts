@@ -11,3 +11,10 @@ Familia FluxBot y ownership de canal:
 
 Cada canal cliente consume el backend central mediante contrato versionado.  
 Ningún canal cliente define backend paralelo.
+
+## Payment surface
+
+- Admin Shopify expone la superficie de planes y estado de billing.
+- App Pricing / App Events son el camino preferido para planes nuevos.
+- Legacy billing queda solo para compatibilidad.
+- Widget `connection-test` puede devolver `paymentInfo` para adaptar la experiencia embebida.

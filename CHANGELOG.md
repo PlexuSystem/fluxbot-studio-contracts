@@ -12,3 +12,8 @@
 - Añadidos `openapi/fluxbot-admin-api.v1.yaml` y `openapi/fluxbot-shared-schemas.v1.yaml`.
 - Añadidos ejemplos de widget chat y connection-test.
 - Añadida documentación de channels, instalación y ownership de backend.
+
+## 0.3.0
+
+- Actualizado el contrato de billing para reflejar App Pricing / App Events como ruta preferida y legacy billing como compatibilidad.
+- Ajustado `paymentInfo` en widget connection-test y añadida documentación de estrategia de pagos.

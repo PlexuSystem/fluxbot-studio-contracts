@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: FluxBot Admin API
-  version: 1.0.0
+  version: 1.1.0
   description: Admin Shopify channel contract surface.
 servers:
   - url: https://api.fluxbot.ai
@@ -153,7 +153,10 @@ components:
           example: Starter
         billingMode:
           type: string
-          enum: [shopify_app_pricing, shopify_legacy_billing]
+          enum: [shopify_app_pricing, shopify_app_events, shopify_legacy_billing]
+          description: |
+            Preferred billing modes are `shopify_app_pricing` and `shopify_app_events`.
+            `shopify_legacy_billing` is retained for compatibility with existing shops.
         currency:
           type: string
           example: USD
@@ -215,4 +218,3 @@ components:
         status:
           type: string
           enum: [pending, active, approaching_limit, capped, frozen, cancelled, uninstalled]
-
