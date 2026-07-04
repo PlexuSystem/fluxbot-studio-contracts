@@ -13,6 +13,14 @@
 - Añadidos ejemplos de widget chat y connection-test.
 - Añadida documentación de channels, instalación y ownership de backend.
 
+## 0.4.0
+
+- Añadido endpoint `POST /api/v1/catalog/sync` con esquemas `CatalogSyncRequest` y `CatalogSyncEnvelope`.
+- Añadido endpoint `GET /api/v1/assistant-config` para leer la configuración del asistente por tienda.
+- Añadido endpoint `POST /api/v1/assistant-config` para crear o actualizar `AssistantConfig` (nombre, persona, tono, instrucciones, mensaje de bienvenida, idioma, categorías).
+- Añadidos esquemas `AssistantConfigRequest` y `AssistantConfigEnvelope`.
+- Mejora IA: RAG conectado al chat, system prompt dinámico por tienda, guardrail anti-repetición y sincronización de catálogo desde Shopify Admin GraphQL.
+
 ## 0.3.0
 
 - Actualizado el contrato de billing para reflejar App Pricing / App Events como ruta preferida y legacy billing como compatibilidad.
