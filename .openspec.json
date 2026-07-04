@@ -117,6 +117,30 @@
           "velocity": 1
         },
         "user_story": "Como responsable de release, quiero the contracts repo documents backward compatibility rules for widget API v1. para entregar el canal widget externo sin acoplar responsabilidades entre repos."
+      },
+      {
+        "id": "REQ-CONTRACT-005",
+        "mirror_of": "REQ-ROOT-009",
+        "title": "Contrato de sincronización de catálogo IA",
+        "description": "El contrato OpenAPI de fluxbot-ia-api debe documentar el resultado real de POST /api/v1/catalog/sync para que backend y Shopify Admin compartan campos estables: chunksIndexed, productsProcessed, durationMs y errors.",
+        "priority": "critical",
+        "status": "planned",
+        "owner": "contracts",
+        "components": [
+          "openapi/fluxbot-ia-api.v1.yaml"
+        ],
+        "acceptance_criteria": [
+          "CatalogSyncEnvelope requiere chunksIndexed, productsProcessed, durationMs y errors.",
+          "El contrato no documenta el campo obsoleto duration para catalog sync.",
+          "Las copias locales consumidas por backend IA y Shopify Admin están sincronizadas con el contrato canónico."
+        ],
+        "dependencies": [],
+        "metrics": {
+          "quality_score": 90,
+          "completion_rate": 0,
+          "velocity": 1
+        },
+        "user_story": "Como desarrollador de integraciones, quiero que el contrato de sincronización de catálogo documente la respuesta real del backend IA para evitar incompatibilidades entre backend y Shopify Admin."
       }
     ]
   }
