@@ -356,6 +356,35 @@ components:
         - errorCode
         - message
       properties:
+        error:
+          type: object
+          required:
+            - code
+            - message
+            - requestId
+            - timestamp
+          properties:
+            code:
+              type: string
+              description: Machine-readable public error code.
+            message:
+              type: string
+              maxLength: 200
+              description: Human-readable public error message with no stack trace or raw object serialization.
+            requestId:
+              type:
+                - string
+                - 'null'
+              format: uuid
+              description: Request ID for server-side lookup and debugging.
+            timestamp:
+              type: string
+              format: date-time
+              description: UTC time when the error response was produced.
+            retryable:
+              type: boolean
+              description: Whether the client may retry the request without user changes.
+          description: Preferred structured public error envelope for widget clients.
         errorCode:
           type: string
           enum:
@@ -378,6 +407,13 @@ components:
             - 'null'
           format: uuid
           description: Request ID for server-side lookup and debugging
+        timestamp:
+          type: string
+          format: date-time
+          description: UTC time when the error response was produced
+        retryable:
+          type: boolean
+          description: Whether the client may retry the request without user changes
 
     StorefrontPaymentInfoDto:
       type: object

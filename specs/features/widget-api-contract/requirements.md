@@ -42,8 +42,17 @@ Acceptance criteria:
 - Versioning expectations are documented for CDN/widget consumers.
 - Compatibility policy is referenced by widget release requirements.
 
+### REQ-CONTRACT-006 — Contrato de error público para chat de widget Shopify
+
+Los errores públicos del widget deben mantener forma estable para que Shopify Admin, backend IA y storefront puedan serializar y renderizar fallos sin HTTP 500 no controlado ni objetos crudos.
+
+Acceptance criteria:
+- Error schema includes `error.code`, `error.message`, `requestId`, and `timestamp`.
+- `500` examples use sanitized textual messages and never nested raw objects.
+- Widget consumers can render backend failures without `[object Object]`.
+- Root-cause investigations document endpoint mismatches between configured URLs and the real Shopify app proxy path.
+
 ## Dependencies
 
 - `fluxbot-studio-back-ia` implements the runtime API.
 - `fluxbot-external-widget` consumes the API from browser environments.
-
