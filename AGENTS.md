@@ -45,6 +45,16 @@ Este es el **repositorio de contratos compartidos** de la familia FluxBot.
 - ✅ **Breaking changes documentadas**
 - ✅ **Changelog actualizado**
 
+## 🧩 Regla de widgets locales y rutas
+
+Requisito raíz: `REQ-ROOT-012`.
+
+Los contratos deben mantener la separación entre:
+- Shopify storefront widget: theme app extension que usa app proxy `/apps/fluxbot/*`.
+- SDK externo: `chat-widget.js`, CDN o local `http://localhost:3004`, con endpoint explícito en desarrollo (`data-endpoint="http://localhost:3001"`).
+
+Cualquier cambio contractual que afecte chat/config del widget, ejemplos de instalación, rutas `/apps/fluxbot/*`, endpoints del SDK externo o defaults de entorno debe actualizar OpenSpec/SpecKit relacionados (`REQ-ROOT-012`, `REQ-IA-SHOPIFY-009`, `REQ-WIDGET-011`, `specs/006-local-widget-endpoint-routing/`).
+
 ---
 
 ## 📁 Estructura Obligatoria
