@@ -171,6 +171,21 @@
         },
         "user_story": "Como desarrollador de integraciones, quiero un contrato público estable para errores del widget para que el storefront pueda degradar con mensajes claros sin romper la conversación."
       }
+    ],
+    "conversation_continuity": [
+      {
+        "id": "REQ-CONTRACT-007",
+        "mirror_of": "REQ-ROOT-013",
+        "title": "Contrato de modo y perfil conversacional",
+        "description": "El contrato de chat debe versionar el perfil de entrenamiento solicitado y los metadatos seguros del modo de ejecución real o de continuidad.",
+        "priority": "critical",
+        "status": "planned",
+        "owner": "contracts",
+        "components": ["openapi/fluxbot-ia-api.v1.yaml"],
+        "acceptance_criteria": ["Enum de perfiles PERSUASIVE, PROFESSIONAL, FRIENDLY, EXPERT y CASUAL", "Respuesta documenta executionMode, provider, trainingProfile, fallbackReason y correlationId", "No expone prompts, PII ni secretos", "Ejemplos cubren LLM real, continuidad y configuración inválida"],
+        "dependencies": ["REQ-ROOT-013"],
+        "user_story": "Como cliente de API, quiero distinguir de forma segura el modo y perfil conversacional para presentar y operar el chat correctamente."
+      }
     ]
   }
 }
