@@ -15,6 +15,14 @@ Contiene:
 
 ---
 
+## Identidad de la app Shopify
+
+- Producción y validación App Store: `fluxbot-studio-ia` (client ID `3e33f15eca7b32e62ea7137311172df5`).
+- Local/desarrollo: `fluxbot-studio` (client ID `8c36112e98ce36be869eb0dc5efdd572`).
+- No desplegar ni comprobar requisitos de App Store con la app local.
+
+---
+
 ## 🔁 Regla Git automática obligatoria
 
 Este repo debe tener hooks activos (`npm run githooks:install`) con este flujo:
