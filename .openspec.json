@@ -172,6 +172,22 @@
         "user_story": "Como desarrollador de integraciones, quiero un contrato público estable para errores del widget para que el storefront pueda degradar con mensajes claros sin romper la conversación."
       }
     ],
+    "privacy": [
+      {
+        "id": "REQ-CONTRACTS-PRIV-001",
+        "mirror_of": "REQ-ROOT-PRIV-001",
+        "title": "Contrato de operaciones GDPR para backend IA",
+        "description": "El contrato OpenAPI define una operación autenticada para exportar o borrar datos personales del backend IA a partir de un webhook GDPR de Shopify.",
+        "priority": "critical",
+        "status": "planned",
+        "owner": "contracts",
+        "components": ["openapi/fluxbot-ia-api.v1.yaml", "examples"],
+        "acceptance_criteria": ["La operación identifica la tienda por X-Shop-Domain", "Distingue exportación, borrado de cliente y borrado de tienda", "La respuesta no expone PII ni secretos"],
+        "dependencies": ["REQ-ROOT-PRIV-001"],
+        "metrics": {"quality_score": 90, "completion_rate": 0, "velocity": 1},
+        "user_story": "Como cliente Shopify, quiero un contrato versionado de privacidad para propagar correctamente los webhooks GDPR al backend IA."
+      }
+    ],
     "conversation_continuity": [
       {
         "id": "REQ-CONTRACT-007",
