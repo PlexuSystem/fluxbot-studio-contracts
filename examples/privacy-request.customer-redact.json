@@ -1,0 +1,4 @@
+{
+  "operation": "CUSTOMER_REDACT",
+  "customerId": "gid://shopify/Customer/1234567890"
+}

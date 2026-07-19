@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Añadido `POST /api/v1/privacy/requests` al contrato compartido IA para registrar de forma autenticada e idempotente las solicitudes Shopify GDPR `customers/data_request`, `customers/redact` y `shop/redact`.
+- El contrato exige `X-Shop-Domain`, evita devolver datos personales y diferencia las solicitudes de cliente de la redacción completa de tienda.
+
 ## 0.1.0
 
 - Bootstrap inicial de `fluxbot-studio-contracts`.
