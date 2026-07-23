@@ -170,6 +170,31 @@
           "velocity": 1
         },
         "user_story": "Como desarrollador de integraciones, quiero un contrato público estable para errores del widget para que el storefront pueda degradar con mensajes claros sin romper la conversación."
+      },
+      {
+        "id": "REQ-CONTRACT-008",
+        "mirror_of": "REQ-ROOT-014",
+        "title": "Contrato de configuración conversacional Cerebro",
+        "description": "El contrato versionado debe definir la configuración conversacional del onboarding y runtime: misión, tono y capacidades, con valores enumerados, compatibilidad y validación para sincronizar Shopify Admin con backend IA.",
+        "priority": "critical",
+        "status": "planned",
+        "owner": "contracts",
+        "affected_apps": [
+          "fluxbot-studio-contracts"
+        ],
+        "components": [
+          "openapi/fluxbot-ia-api.v1.yaml"
+        ],
+        "acceptance_criteria": [
+          "El contrato expone valores enumerados para misión SALES|SUPPORT|SALES_SUPPORT y tono professional|friendly|concise|sales.",
+          "El contrato expone los cinco booleanos de capacidades y no permite valores adicionales.",
+          "La operación de lectura/escritura queda autenticada, versionada y compatible con consumidores existentes.",
+          "Existen pruebas de contrato que validan serialización, valores inválidos y compatibilidad."
+        ],
+        "dependencies": [
+          "REQ-ROOT-014"
+        ],
+        "user_story": "Como cliente del API, quiero un contrato tipado para la configuración Cerebro para que Shopify Admin y backend apliquen la misma personalización."
       }
     ],
     "privacy": [
@@ -181,10 +206,23 @@
         "priority": "critical",
         "status": "planned",
         "owner": "contracts",
-        "components": ["openapi/fluxbot-ia-api.v1.yaml", "examples"],
-        "acceptance_criteria": ["La operación identifica la tienda por X-Shop-Domain", "Distingue exportación, borrado de cliente y borrado de tienda", "La respuesta no expone PII ni secretos"],
-        "dependencies": ["REQ-ROOT-PRIV-001"],
-        "metrics": {"quality_score": 90, "completion_rate": 0, "velocity": 1},
+        "components": [
+          "openapi/fluxbot-ia-api.v1.yaml",
+          "examples"
+        ],
+        "acceptance_criteria": [
+          "La operación identifica la tienda por X-Shop-Domain",
+          "Distingue exportación, borrado de cliente y borrado de tienda",
+          "La respuesta no expone PII ni secretos"
+        ],
+        "dependencies": [
+          "REQ-ROOT-PRIV-001"
+        ],
+        "metrics": {
+          "quality_score": 90,
+          "completion_rate": 0,
+          "velocity": 1
+        },
         "user_story": "Como cliente Shopify, quiero un contrato versionado de privacidad para propagar correctamente los webhooks GDPR al backend IA."
       }
     ],
@@ -197,9 +235,18 @@
         "priority": "critical",
         "status": "planned",
         "owner": "contracts",
-        "components": ["openapi/fluxbot-ia-api.v1.yaml"],
-        "acceptance_criteria": ["Enum de perfiles PERSUASIVE, PROFESSIONAL, FRIENDLY, EXPERT y CASUAL", "Respuesta documenta executionMode, provider, trainingProfile, fallbackReason y correlationId", "No expone prompts, PII ni secretos", "Ejemplos cubren LLM real, continuidad y configuración inválida"],
-        "dependencies": ["REQ-ROOT-013"],
+        "components": [
+          "openapi/fluxbot-ia-api.v1.yaml"
+        ],
+        "acceptance_criteria": [
+          "Enum de perfiles PERSUASIVE, PROFESSIONAL, FRIENDLY, EXPERT y CASUAL",
+          "Respuesta documenta executionMode, provider, trainingProfile, fallbackReason y correlationId",
+          "No expone prompts, PII ni secretos",
+          "Ejemplos cubren LLM real, continuidad y configuración inválida"
+        ],
+        "dependencies": [
+          "REQ-ROOT-013"
+        ],
         "user_story": "Como cliente de API, quiero distinguir de forma segura el modo y perfil conversacional para presentar y operar el chat correctamente."
       }
     ]
